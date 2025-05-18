@@ -1,164 +1,290 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Kenzo Takagi Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #1e1e2f;
-            color: #fff;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conecte-se Comigo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #f4f6f8;
+      --text-color: #1c1e21;
+      --subtext-color: #606770;
+      --card-color: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
 
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #f39c12;
-            margin-bottom: 20px;
-        }
+    body.dark-mode {
+      --bg-color: #18191a;
+      --text-color: #f0f2f5;
+      --subtext-color: #b0b3b8;
+      --card-color: #242526;
+      --shadow-color: rgba(0, 0, 0, 0.5);
+    }
 
-        .intro-text {
-            font-size: 2em;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        .footer-text {
-            font-size: 0.75em;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            margin-top: 0px;
-            color: #b6b6b6;
-        }
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
 
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
+    .top-buttons button {
+      background-color: transparent;
+      border: 2px solid var(--text-color);
+      color: var(--text-color);
+      border-radius: 50px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
 
-        .button-container a {
-            display: inline-flex;
-            align-items: center;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: #fff;
-            background-color: #f39c12;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin: 10px;
-        }
+    .top-buttons button:hover {
+      background-color: var(--text-color);
+      color: var(--bg-color);
+    }
 
-        .button-container a:hover {
-            background-color: #e67e22;
-        }
+    .card {
+      display: flex;
+      background-color: var(--card-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      overflow: hidden;
+      max-width: 900px;
+      width: 100%;
+      margin-top: 80px;
+    }
 
-        .button-container a i {
-            margin-right: 10px;
-            font-size: 1.5em;
-        }
+    .left {
+      flex: 1;
+    }
 
-        /* Estilo do botão de "About me" */
-        .help-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 10px 15px;
-            font-size: 1em;
-            color: #fff;
-            background-color: #787878;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .help-button:hover {
-            background-color: #e67e22;
-        }
+    .right {
+      flex: 1;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-        /* Estilo da caixa de texto (inicialmente oculta) */
-        .help-box {
-            position: absolute; /* Fixa a posição da caixa */
-            display: none;
-            margin-top: 10px;
-            background-color: #ffffffe2;
-            color: #333;
-            padding: 15px;
-            border-radius: 5px;
-            max-width: 300px;
-            text-align: left;   
-            font-size: 1em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            top: 300px;
-            right: 575px;       
-        }
+    .right-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+    }
 
-        /* Exibe a caixa de texto ao passar o mouse sobre o botão */
-        .help-button:hover + .help-box {
-            display: block;
-        }
-    </style>
+
+    .top-content {
+      
+    }
+
+    .inside-icons {
+      display: flex;
+      gap: 20px; /* espaço entre os ícones */
+      justify-content: center;
+      flex-wrap: wrap; /* permite quebrar linha se não couberem */
+    }
+
+    .right h2 {
+      margin: 0;
+      font-size: 24px;
+      color: var(--text-color);
+    }
+
+    .right p {
+      margin: 8px 0 0;
+      color: var(--subtext-color);
+    }
+
+    .bottom-icons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .icon-link {
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .icon-link:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon:hover {
+      transform: scale(1.2);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+      filter: brightness(1.15);
+    }
+
+    .github { background-color: #24292e; }
+    .linkedin { background-color: #0077b5; }
+    .itch-io { background-color: #ff0000; }
+    .email { background-color: #ea4335; }
+    .whatsapp { background-color: #25D366; }
+    .curriculum { background-color: #E1306C; }
+
+    .icon-link span {
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
+      }
+
+      .right {
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .bottom-icons {
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="intro-text">I'm Daniel Kenzo Takagi, a developer, hire me!</div>
-    <img src="https://i.imgur.com/Na22KkA.jpeg" alt="Profile Picture" class="profile-image">
-    <div class="button-container">
-        <!-- CV Button -->
-        <a href="https://docs.google.com/document/d/13uv9E-owUgtN-IAFvNvmi92l_DSMSHfiBrMDWS4FK8g/edit?tab=t.0" target="_blank">
-            <i class="fab fa-google-drive"></i> CV English
-        </a>
-        <a href="https://docs.google.com/document/d/1EIN0hl98J1eBpNksir9o9bnj-DrENqZJdIDYisOrgBE/edit?tab=t.0" target="_blank">
-            <i class="fab fa-google-drive"></i> CV Português
-        </a><br>
-        <!-- LinkedIn Button -->
-        <a href="https://www.linkedin.com/in/daniel-kenzo-takagi-634090149/" target="_blank">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a><br>
-        <!-- GitHub Button -->
-        <a href="https://github.com/kenzochan" target="_blank">
-            <i class="fab fa-github"></i> GitHub
-        </a><br>
-        <!-- Itch.io Button -->
-        <a href="https://kkkkenzo.itch.io/" target="_blank">
-            <i class="fab fa-itch-io"></i> Itch.io
-        </a>       
-        <!-- Help Button (About me Button) -->
-        <br><br><br><br><br><br>
-        <button class="help-button" onmouseover="showHelpBox()" onmouseout="hideHelpBox()">About me</button>
-        <!-- Help Box (Texto) -->
-        <div class="help-box" id="helpBox">
-            Brazilian, living in Brazil. Has complete Bacharelor degree in Computer Science. Fluent communication in Portuguese, advanced in English, and begginer level in Spanish and Japanese. 
-        </div>
+  <div class="top-buttons">
+    <button onclick="toggleTheme()">🌓</button>
+    <button onclick="toggleLanguage()">🌐 PT | EN</button>
+  </div>
+  <div class="card">
+    <div class="left">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQH8dGxpSQPtWQ/profile-displayphoto-shrink_800_800/B56ZTtjCMLGUAc-/0/1739152172589?e=1753315200&v=beta&t=SML7GphxPyvXwBnL5_9x5QNbgx-LAGl_Dl3XLqzVwTE" alt="Imagem de fundo">
     </div>
-
-    <script>
-        // Função para mostrar a caixa de ajuda
-        function showHelpBox() {
-            document.getElementById('helpBox').style.display = 'block';
-        }
-
-        // Função para esconder a caixa de ajuda
-        function hideHelpBox() {
-            document.getElementById('helpBox').style.display = 'none';
-        }
-    </script>
-    <div class="footer-text">        
-        <footer> <p>Página desenvolvida por Daniel Kenzo Takagi</p></footer>
+    <div class="right">
+  <div class="right-content">
+    <div class="top-content">
+      <h2 id="title">Daniel Kenzo Takagi</h2>
+      <p id="subtitle">Programador C#, Desenvolvedor Web</p>
+      <p id="about">Sou desenvolvedor web. Minhas principais stacks são ASP.NET, SQL, API Rest e programação C#</p>
     </div>
-    
+    <div class="inside-icons">
+      <a class="icon-link" href="https://drive.google.com/file/d/1Bp3fXRkwYtTnZmR_1-Rz6OL5mQjoMMKm/view?usp=drive_link" target="_blank">
+        <div class="icon curriculum"><i class="fab fa-regular fa-file"></i></div>
+        <span id="curriculum-label">CV PORTUGUESE</span>
+      </a>
+      <a class="icon-link" href="https://docs.google.com/document/d/13uv9E-owUgtN-IAFvNvmi92l_DSMSHfiBrMDWS4FK8g/edit?pli=1&tab=t.0#heading=h.becnj81ealst" target="_blank">
+        <div class="icon curriculum"><i class="fab fa-regular fa-file"></i></div>
+        <span id="curriculum-label">CV ENGLISH</span>
+      </a>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="bottom-icons">
+    <a class="icon-link" href="https://github.com/kenzochan" target="_blank">
+      <div class="icon github"><i class="fab fa-github"></i></div>
+      <span id="github-label">GitHub</span>
+    </a>
+    <a class="icon-link" href="https://www.linkedin.com/in/daniel-kenzo-takagi-634090149/" target="_blank">
+      <div class="icon linkedin"><i class="fab fa-linkedin-in"></i></div>
+      <span id="linkedin-label">LinkedIn</span>
+    </a>
+    <a class="icon-link" href="https://kkkkenzo.itch.io/" target="_blank">
+      <div class="icon itch-io"><i class="fab fa-itch-io"></i></div>
+      <span id="itch-label">Itch.io</span>
+    </a>
+    <a class="icon-link" href="mailto:danielkt.jobs@email.com">
+      <div class="icon email"><i class="fas fa-envelope"></i></div>
+      <span id="email-label">Email</span>
+    </a>
+    <a class="icon-link" href="https://wa.me/5518997772515" target="_blank">
+      <div class="icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+      <span id="whatsapp-label">WhatsApp</span>
+    </a>
+  </div>
+
+  <script>
+    let isDark = false;
+    let lang = 'pt';
+
+    function toggleTheme() {
+      isDark = !isDark;
+      document.body.classList.toggle("dark-mode", isDark);
+    }
+
+    function toggleLanguage() {
+      lang = lang === 'pt' ? 'en' : 'pt';
+      const texts = {
+        pt: {
+          title: "Daniel Kenzo Takagi",
+          subtitle: "Programador C#, Desenvolvedor Web",
+          about: "Sou desenvolvedor web. Minhas principais stacks são ASP.NET, SQL, API Rest e programação C#",
+          github: "GitHub",
+          linkedin: "LinkedIn",
+          itchio: "Itch.io",
+          email: "Email",
+          whatsapp: "WhatsApp",
+          curriculum: "CV"
+        },
+        en: {
+          title: "Daniel Kenzo Takagi",
+          subtitle: "C# Programmer, Web Developer",
+          about: "I'm a web developer, my main stacks are ASP.NET, SQL, API Rest and C# programming",
+          github: "GitHub",
+          linkedin: "LinkedIn",
+          itchio: "Itch.io",
+          email: "Email",
+          whatsapp: "WhatsApp",
+          curriculum: "CV"
+        }
+      };
+
+      const t = texts[lang];
+      document.getElementById("title").innerText = t.title;
+      document.getElementById("about").innerText = t.about;
+      document.getElementById("subtitle").innerText = t.subtitle;
+      document.getElementById("github-label").innerText = t.github;
+      document.getElementById("linkedin-label").innerText = t.linkedin;
+      document.getElementById("itch-io-label").innerText = t.itchio;
+      document.getElementById("email-label").innerText = t.email;
+      document.getElementById("whatsapp-label").innerText = t.whatsapp;
+      document.getElementById("curriculum-label").innerText = t.curriculum;
+    }
+  </script>
 </body>
 </html>
